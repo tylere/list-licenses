@@ -110,6 +110,13 @@ class CondaPackage:
     except OSError as e:
       print('{0}The expected package path was not found.'.format(' ' * 2))
       print('{0}{1}'.format(' ' * 2, e))
+      
+      # Stop if we haven't manually investigated this file
+      #
+      # cycler:
+      #  does not install anything in /opt/conda/pkgs/cycler-0.10.0-py35_0
+      #  installs an egg in lib/python3.5/site-packages/cycler-0.10.0-py3.5.egg
+      if self.package_name not in ['cycler']
       import ipdb; ipdb.set_trace()
       return
 
@@ -141,6 +148,7 @@ class CondaPackage:
       
         # Extract information on the repo source.
         #import ipdb; ipdb.set_trace()
+        #
         source_fn = file_meta['source']['fn']
         if source_fn.endswith('.tar.gz'):
           source_base = source_fn[:-7]
