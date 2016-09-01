@@ -148,7 +148,7 @@ class CondaPackage:
       
         # Extract information on the repo source.
         #import ipdb; ipdb.set_trace()
-        #
+        ##
         source_fn = file_meta['source']['fn']
         if source_fn.endswith('.tar.gz'):
           source_base = source_fn[:-7]
